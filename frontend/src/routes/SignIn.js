@@ -6,13 +6,13 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 function SignIn() {
-  const { dispatch } = useContext(UserContext);
+  const { state, dispatch } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   //  const location = useLocation();
-  const BASE_URL = "http://localhost:8080";
+  const BASE_URL = "http://localhost:8080/users";
   //   console.log(sessionmStorage.getItem("fid"));
 
   const handleSignup = () => {

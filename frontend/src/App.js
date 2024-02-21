@@ -43,7 +43,7 @@ function App() {
   return (
     <div className="App">
       <UserContext.Provider value={{ state, dispatch }}>
-        <Navbar></Navbar>
+        <Navbar />
 
         <Routes>
           <Route path="*" element={<PageNotFound />} />
@@ -81,7 +81,7 @@ function App() {
         </Routes>
 
         <ToastContainer />
-        <Footer></Footer>
+        <Footer />
       </UserContext.Provider>
     </div>
   );
