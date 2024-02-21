@@ -40,7 +40,7 @@ function SignIn() {
     event.preventDefault();
 
     try {
-      const response = await axios.post(BASE_URL + `/login`, cred);
+      const response = await axios.post(BASE_URL + `/signin`, cred);
       console.log(response.data);
       const token = response.data.token;
       const userId = response.data.userId;

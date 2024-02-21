@@ -91,6 +91,8 @@ public class FlightService {
 
                 List<StopDTO> stopDTOs = tempStops.stream().map(e -> modelMapper.map(e, StopDTO.class)).collect(Collectors.toList());
 
+                fare*=Integer.parseInt(numPass);
+
                 FlightDTO flightDTO = new FlightDTO(stop.getStopId().getFlight().getFlightId(), stop.getStopId().getFlight().getFlightName(), stop.getStopId().getFlight().getLogo(), Integer.parseInt(numPass),
                         stopDTOs, availableSeats, totalSeats, fare, type);
 

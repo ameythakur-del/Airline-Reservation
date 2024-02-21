@@ -179,24 +179,23 @@ function BookFlight() {
                   <th>Destination</th>
                   <th>Departure Time</th>
                   <th>Arrival Time</th>
-                  <th>Business Class Fare</th>
-                  <th>First Class Fare</th>
-                  <th>Economy Class Fare</th>
+                  <th>Fare</th>
                   <th>Available Seats</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 {flights.map((flight) => (
-                  <tr key={flight.flightId}>
-                    <td>{flight.flightId}</td>
-                    <td>{flight.source}</td>
-                    <td>{flight.destination}</td>
-                    <td>{flight.departureTime}</td>
-                    <td>{flight.arrivalTime}</td>
-                    <td>{flight.businessFare}</td>
-                    <td>{flight.firstClassFare}</td>
-                    <td>{flight.economyFare}</td>
+
+                  <tr key={flight.id}>
+                    <td>{flight.id}</td>
+                    <td>{flight.stops[0].stopName}</td>
+                    <td>{flight.stops[flight.stops.length-1].stopName}</td>
+                    <td>{flight.stops[0].departureDateTime.split("T")[0] + " " +
+                    flight.stops[0].departureDateTime.split("T")[1]}</td>
+                    <td>{flight.stops[0].arrivalDateTime.split("T")[0] + " " +
+                    flight.stops[0].arrivalDateTime.split("T")[1]}</td>
+                    <td>{flight.fare}</td>
                     <td>{flight.availableSeats}</td>
                     <td>
                       <button onClick={() => handleBook(flight.flightId)}>
