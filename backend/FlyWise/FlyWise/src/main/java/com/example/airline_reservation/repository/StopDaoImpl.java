@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 
 public interface StopDaoImpl extends JpaRepository<Stop, StopId> {
@@ -18,4 +17,6 @@ public interface StopDaoImpl extends JpaRepository<Stop, StopId> {
 
     @Query(value = "select distinct s.stopName from Stop s")
     List<String> getCities();
+    Stop findByStopIdStopNumberAndStopIdFlightFlightId(Integer stopNumber, Integer flightId);
+
 }

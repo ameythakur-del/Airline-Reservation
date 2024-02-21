@@ -1,14 +1,13 @@
 package com.example.airline_reservation.controllers;
 
 import com.example.airline_reservation.dtos.BookingDTO;
-import com.example.airline_reservation.exceptions.ResourceNotFoundException;
-import com.example.airline_reservation.http.*;
-import com.example.airline_reservation.entities.Booking;
+import com.example.airline_reservation.http.Response;
 import com.example.airline_reservation.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/book")

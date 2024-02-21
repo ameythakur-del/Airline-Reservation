@@ -17,8 +17,8 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Transactional
@@ -33,6 +33,10 @@ public class FlightService {
 
     @Autowired
     private ModelMapper modelMapper;
+
+    public Set<String> getCitites() {
+        return stopDao.findAll().stream().map(Stop::getStopName).collect(Collectors.toSet());
+    }
 
     public List<FlightDTO> getFlights(String from, String to, LocalDate date, String numPass, String type) {
 
@@ -90,8 +94,6 @@ public class FlightService {
                 Stop stop = tempStops.get(0);
 
                 List<StopDTO> stopDTOs = tempStops.stream().map(e -> modelMapper.map(e, StopDTO.class)).collect(Collectors.toList());
-
-                fare*=Integer.parseInt(numPass);
 
                 FlightDTO flightDTO = new FlightDTO(stop.getStopId().getFlight().getFlightId(), stop.getStopId().getFlight().getFlightName(), stop.getStopId().getFlight().getLogo(), Integer.parseInt(numPass),
                         stopDTOs, availableSeats, totalSeats, fare, type);

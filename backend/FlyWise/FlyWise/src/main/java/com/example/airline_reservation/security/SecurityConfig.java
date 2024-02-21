@@ -9,7 +9,6 @@ import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -24,13 +23,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        http.csrf(csrf -> csrf.disable())
+        http.csrf(csrf -> csrf.disable()).cors(cors -> cors.disable())
                 .authorizeHttpRequests(auth -> auth
 //                        .requestMatchers("/admin").hasRole("ADMIN")
-//                        .mvcMatchers("/flights").hasRole("USER")
-                        .mvcMatchers("/users/signup", "/users/signin", "/cities", "/flights").permitAll()
-                        .mvcMatchers("/swagger-ui/**","/v*/api-doc*/**").permitAll()
-
+                        .mvcMatchers("/flights", "/cities").permitAll()
+                        .mvcMatchers("/users/signup", "users/signin").permitAll()
+                        .mvcMatchers("/swagger-ui/**", "/v*/api-doc*/**").permitAll()
 //                        .requestMatchers("/users/signup", "/users/signin").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);

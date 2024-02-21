@@ -1,11 +1,11 @@
 package com.example.airline_reservation.entities;
 
-import javax.persistence.*;
-import javax.validation.constraints.Email;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Getter
 @Setter

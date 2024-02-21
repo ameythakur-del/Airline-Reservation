@@ -3,13 +3,12 @@ package com.example.airline_reservation.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
-
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
@@ -26,5 +25,5 @@ public class Signup {
     private String password;
     private String mobileNumber;
     private String govtId;
-    private String idNumber;
+    private String govtIdNumber;
 }
