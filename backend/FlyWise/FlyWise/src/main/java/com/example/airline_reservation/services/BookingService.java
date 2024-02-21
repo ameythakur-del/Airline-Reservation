@@ -3,7 +3,6 @@ package com.example.airline_reservation.services;
 import com.example.airline_reservation.dtos.BookingDTO;
 import com.example.airline_reservation.dtos.UserDaoImpl;
 import com.example.airline_reservation.entities.*;
-import com.example.airline_reservation.exceptions.ResourceNotFoundException;
 import com.example.airline_reservation.http.Response;
 import com.example.airline_reservation.repository.BookingDaoImpl;
 import com.example.airline_reservation.repository.FlightDaoImpl;
@@ -13,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.awt.print.Book;
 
 @Service
 @Transactional
