@@ -18,5 +18,4 @@ public interface StopDaoImpl extends JpaRepository<Stop, StopId> {
 
     @Query(value = "select distinct s.stopName from Stop s")
     List<String> getCities();
-
 }
