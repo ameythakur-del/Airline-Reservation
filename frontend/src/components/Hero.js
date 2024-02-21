@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/HeroStyles.css";
 
 // Functional component named Hero with props as the parameter
@@ -11,9 +12,9 @@ function Hero(props) {
           <h1>{props.title}</h1>
           <p>{props.text}</p>
 
-          <a href={props.url} className={props.btnClass}>
+          <Link to={props.url} className={props.btnClass}>
             {props.btnText}
-          </a>
+          </Link>
         </div>
       </div>
     </>

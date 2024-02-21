@@ -1,5 +1,5 @@
 // Initial state for the Redux store
-export const initialState = null;
+export const initialState = sessionStorage.getItem("fname") ? true : false;
 
 // Reducer function for handling state changes based on dispatched actions
 export const reducer = (state, action) => {

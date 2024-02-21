@@ -24,6 +24,7 @@ const SelectSeat = () => {
   const BASE_URL = "http://localhost:8080";
 
   const handleBook = async (event) => {
+    event.preventDefault();
     const uid = sessionStorage.getItem("uid");
     const fid = sessionStorage.getItem("fid");
     const params = {
@@ -33,10 +34,12 @@ const SelectSeat = () => {
       class: classes,
     };
 
-    event.preventDefault();
-
     try {
-      const response = await axios.get(BASE_URL + `/book/seats`, { params });
+      axios.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${sessionStorage.getItem("jwtToken")}`;
+
+      const response = await axios.get(BASE_URL + "/book/seats", { params });
       const bid = response.data;
       sessionStorage.setItem("bid", bid);
       sessionStorage.setItem("numSeats", numberOfSeatsToBook);
@@ -45,7 +48,8 @@ const SelectSeat = () => {
       sessionStorage.setItem("class", classes);
       navigate("/addPassengers");
     } catch (error) {
-      toast.error(`${error.response.data}`);
+      console.log(error.response.data);
+      toast.error(error.response.data);
     }
   };
 

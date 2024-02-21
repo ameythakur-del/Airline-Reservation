@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const navigate = useNavigate();
-  const USER_BASE_REST_API_URI = "http://localhost:8080";
+  const USER_BASE_REST_API_URI = "http://localhost:8080/users";
 
   const [formData, setFormData] = useState({
     email: "",
@@ -19,7 +19,7 @@ const Register = () => {
     govtIdNumber: "",
   });
 
-  const {
+/*   const {
     email,
     password,
     firstName,
@@ -27,7 +27,7 @@ const Register = () => {
     phoneNumber,
     govtId,
     govtIdNumber,
-  } = formData;
+  } = formData; */
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,7 +37,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        USER_BASE_REST_API_URI + `/register`,
+        USER_BASE_REST_API_URI + "/signup",
         formData
       );
       console.log(response.data + "<>><");
@@ -65,7 +65,7 @@ const Register = () => {
                 type="email"
                 placeholder="Email Address"
                 name="email"
-                value={email}
+                value={formData.email}
                 onChange={(e) => onChange(e)}
                 required
               />
@@ -78,7 +78,7 @@ const Register = () => {
                 type="password"
                 placeholder="Password"
                 name="password"
-                value={password}
+                value={formData.password}
                 onChange={(e) => onChange(e)}
                 minLength="5"
                 required
@@ -92,7 +92,7 @@ const Register = () => {
                 type="text"
                 placeholder="First Name"
                 name="firstName"
-                value={firstName}
+                value={formData.firstName}
                 onChange={(e) => onChange(e)}
                 required
               />
@@ -105,7 +105,7 @@ const Register = () => {
                 type="text"
                 placeholder="Last Name"
                 name="lastName"
-                value={lastName}
+                value={formData.lastName}
                 onChange={(e) => onChange(e)}
               />
             </div>
@@ -117,7 +117,7 @@ const Register = () => {
                 type="text"
                 placeholder="Mobile Number"
                 name="phoneNumber"
-                value={phoneNumber}
+                value={formData.phoneNumber}
                 onChange={(e) => onChange(e)}
               />
             </div>
@@ -129,7 +129,7 @@ const Register = () => {
                 type="text"
                 placeholder="Govt ID"
                 name="govtId"
-                value={govtId}
+                value={formData.govtId}
                 onChange={(e) => onChange(e)}
                 required
               />
@@ -142,7 +142,7 @@ const Register = () => {
                 type="text"
                 placeholder="Govt ID Number"
                 name="govtIdNumber"
-                value={govtIdNumber}
+                value={formData.govtIdNumber}
                 onChange={(e) => onChange(e)}
                 required
               />
