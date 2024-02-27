@@ -35,17 +35,7 @@ const SelectSeat = () => {
     };
 
     try {
-      axios.defaults.headers.common[
-        "Authorization"
-      ] = `Bearer ${sessionStorage.getItem("jwtToken")}`;
 
-      const response = await axios.get(BASE_URL + "/book/seats", { params });
-      const bid = response.data;
-      sessionStorage.setItem("bid", bid);
-      sessionStorage.setItem("numSeats", numberOfSeatsToBook);
-      console.log(bid);
-      console.log(numberOfSeatsToBook);
-      sessionStorage.setItem("class", classes);
       navigate("/addPassengers");
     } catch (error) {
       console.log(error.response.data);

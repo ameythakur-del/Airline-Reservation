@@ -14,4 +14,6 @@ public class SigninResponse {
     private Long userId;
     private String role;
     private String firstName;
+    private String lastName, email;
+    private String phoneNumber;
 }

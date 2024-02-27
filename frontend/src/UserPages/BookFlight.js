@@ -56,25 +56,37 @@ function BookFlight() {
 
   // sessionStorage.setItem('flight', flights)
 
-  const handleBook = async (flightId) => {
-    sessionStorage.setItem("fid", flightId);
+  const handleBook = async (flight) => {
+    sessionStorage.setItem("fid", flight.id);
 
     console.log(sessionStorage.getItem("fid"));
 
-    const selectedFlight = flights.find(
-      (flight) => flight.flightId === flightId
-    );
+    var dateTime = new Date();
+    var booking = {
+    "numberOfSeatsBooked": parseInt(numPass),
+    "type": seatClass,
+    "paymentStatus": false,
+    "dateTime": dateTime,
+    "flightId": flight.id,
+    "sourceNumber": flight.stops[0].stopNumber,
+    "destinationNumber": flight.stops[flight.stops.length-1].stopNumber,
+    "userId": sessionStorage.getItem("uid"),
+    "availableSeats": flight.availableSeats,
+    "totalSeats": flight.totalSeats,
+    "fare": flight.fare
+    };
 
-    sessionStorage.setItem("selectedFlight", JSON.stringify(selectedFlight));
-    console.log(selectedFlight);
+    sessionStorage.setItem("booking", JSON.stringify(booking));
+    console.log(flight);
 
     if (
       sessionStorage.getItem("role") === "ROLE_USER" &&
       sessionStorage.getItem("jwtToken")
     ) {
+
       // const selectedFlight = flights.find((flight) => flight.flightId === flightId);
       //  navigate('/selectseat', { state: { selectedFlight } });
-      navigate("/selectseat");
+      navigate("/addPassengers");
     } else {
       // const selectedFlight = flights.find((flight) => flight.flightId === flightId);
       //  navigate('/login', { state: { selectedFlight } });
@@ -198,7 +210,7 @@ function BookFlight() {
                     <td>{flight.fare}</td>
                     <td>{flight.availableSeats}</td>
                     <td>
-                      <button onClick={() => handleBook(flight.flightId)}>
+                      <button onClick={() => handleBook(flight)}>
                         Book
                       </button>
                     </td>

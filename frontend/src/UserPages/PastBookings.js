@@ -1,30 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import UserSidebar from "../components/UserSidebar";
 import UserService from "../services/UserService";
-import { useState, useEffect } from "react";
-import { PastBookingsData } from "./PastBookingsData";
 import { toast } from "react-toastify";
+import { PastBookingsData } from "./PastBookingsData";
 
 export const PastBookings = () => {
   const [bookings, setBookings] = useState([]);
 
-  const getAllBookings = () => {
-    const uid = parseInt(sessionStorage.getItem("uid"));
-    UserService.getUserBookings(uid)
-      .then((response) => {
+  useEffect(() => {
+    const getAllBookings = async () => {
+      const uid = parseInt(sessionStorage.getItem("uid"));
+      try {
+        const response = await UserService.getUserBookings(uid);
         setBookings(response.data);
-      })
-      .catch((error) => {
+      } catch (error) {
         if (error.response.status === 404 || error.response.status === 400) {
           toast.error(`${error.response.data}`);
-        } else if (error.response.status === 500)
-          toast.error(`No succesful booking yet.`);
-      });
-  };
+        } else if (error.response.status === 500) {
+          toast.error(`No successful booking yet.`);
+        }
+      }
+    };
 
-  const handleButton = () => {
     getAllBookings();
-  };
+  }, []); // Empty dependency array ensures the effect runs only once
 
   return (
     <UserSidebar>
@@ -33,21 +32,23 @@ export const PastBookings = () => {
           Past Bookings By {sessionStorage.getItem("fname")}
         </h1>
         <br />
-        <button onClick={handleButton}>Get Bookings</button>
+
         <div />
         <br />
         <table>
-          <tr>
-            <th>bookingId</th>
-            <th>Source</th>
-            <th>Destination</th>
-            <th>Booking Date</th>
-            <th>Number of Seats</th>
-            <th>Booking Status</th>
-            <th>Class Name</th>
-            <th>Payment Status</th>
-            <th>Cancel Ticket</th>
-          </tr>
+          <thead>
+            <tr>
+              <th>bookingId</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Date Time</th>
+              <th>Number of Seats</th>
+              <th>Flight Id</th>
+              <th>Seat Class</th>
+              <th>Payment Id</th>
+              <th>Passengers</th>
+            </tr>
+          </thead>
           <tbody>
             <PastBookingsData bookings={bookings} />
           </tbody>

@@ -14,7 +14,7 @@ class UserService {
   }
 
   getUserBookings(uid) {
-    return axios.get(USER_BASE_REST_API_URI + "/user/bookings", {
+    return axios.get(USER_BASE_REST_API_URI + "/book", {
       params: { uid: uid },
     });
   }

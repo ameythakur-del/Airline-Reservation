@@ -23,7 +23,7 @@ public class Signup {
     private String email;
     @JsonProperty(access = Access.WRITE_ONLY)
     private String password;
-    private String mobileNumber;
+    private String phoneNumber;
     private String govtId;
     private String govtIdNumber;
 }

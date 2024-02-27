@@ -22,8 +22,8 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    private String mobileNumber;
+    private String phoneNumber;
     private String govtId;
-    private String idNumber;
+    private String govtIdNumber;
     private boolean isAdmin = false;
 }

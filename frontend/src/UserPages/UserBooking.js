@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from "react-router";
 import { toast } from "react-toastify";
 import "../styles/UserBookingStyles.css";
 import UserSidebar from "../components/UserSidebar";
+import logo from "../assets/logo.png";
 
 function UserBooking() {
   const [passengers, setPassengers] = useState([]);
@@ -14,10 +15,13 @@ function UserBooking() {
 
   const navigate = useNavigate();
 
-  const numberOfSeatsToBook = parseInt(sessionStorage.getItem("numSeats"));
 
   // const selectedFlight = location.state.selectedFlight;
   const selectedFlight = JSON.parse(sessionStorage.getItem("selectedFlight"));
+  const booking = JSON.parse(sessionStorage.getItem("booking"));
+  const name = sessionStorage.getItem("fname")+sessionStorage.getItem("lname");
+  const email = sessionStorage.getItem("email");
+  const mobile = sessionStorage.getItem("mobile_number");
 
   // const cls = location.state.cls;
   const cls = sessionStorage.getItem("class");
@@ -30,6 +34,7 @@ function UserBooking() {
     newPassengers[index] = {
       ...newPassengers[index],
       [name]: value,
+      seatNumber: parseInt(booking.totalSeats - booking.availableSeats + index + 1)
     };
 
     setPassengers(newPassengers);
@@ -42,20 +47,78 @@ function UserBooking() {
 
     try {
       const response = await axios.post(
-        BASE_URL + `/book/passengers?bid=${bookingId}`,
-        passengers
+        BASE_URL + `/book`,
+        {
+          ...booking,
+          userId: parseInt(sessionStorage.getItem("uid")),
+          passengers: passengers.map(passenger => ({
+            ...passenger,
+            age: parseInt(passenger.age),
+            gender: passenger.gender.toUpperCase()
+          }))
+        }
+      ).then(response=> {
+        var rzp1 = new window.Razorpay({
+          "key": "rzp_test_bFFZd5YLnfhhmu",// Enter the Key ID generated from the Dashboard
+          "timeout": "30",
+          "amount": booking.fare*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+          "currency": "INR",
+          "name": "Flywise Airways", //your business name
+          "description": "Test Transaction",
+          "image": logo,
+          "order_id": response.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+          "modal": {
+            "ondismiss": function(){
+                const response4 = axios.delete(BASE_URL + `/payment?id=${response.data.id}`);
+            },
+          },
+          "handler": function (response2){
+              try{
+                const d = new Date();
+              const response3 = axios.post(
+                BASE_URL + `/payment?id=${response.data.id}`,
+                {
+                  "transactionNumber" : response2.razorpay_payment_id,
+                  "date" : d,
+                  "totalAmount" : booking.fare
+                }
+              ).then(() => {
+                navigate("/userhistory");
+              });
+              }
+              catch(error) {
+                toast.error(`${error}`);
+              }
+          },
+          "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
+              "name": name, //your customer's name
+              "email": email,
+              "contact": mobile  //Provide the customer's phone number for better conversion rates
+          },
+          "notes": {
+              "address": "Tinsel Town, Pune"
+          },
+          "theme": {
+              "color": "#3399cc"
+          }
+      });
+
+    rzp1.open();
+      }
       );
 
-      navigate(`/confirmBooking`);
-    } catch (error) {
-      toast.error(`${error.response.data}`);
+
+  }
+    catch (error) {
+      toast.error(`${error}`);
     }
+
   };
 
   const renderPassengerForm = () => {
     const forms = [];
 
-    for (let i = 0; i < numberOfSeatsToBook; i++) {
+    for (let i = 0; i < booking.numberOfSeatsBooked; i++) {
       forms.push(
         <div className="mx-auto col-md-6" key={i}>
           <h1
@@ -83,7 +146,7 @@ function UserBooking() {
                     type="text"
                     required
                     className="form-control"
-                    name="passengerName"
+                    name="name"
                     onChange={(event) => handlePassengerChange(event, i)}
                   />
                 </td>
@@ -116,6 +179,17 @@ function UserBooking() {
                   />
                 </td>
               </tr>
+              <tr>
+                <td>Seat Number</td>
+                <td>
+                  <input
+                    type="number"
+                    className="form-control"
+                    name="seatNumber"
+                    value={booking.totalSeats-booking.availableSeats+i+1}
+                  />
+                </td>
+              </tr>
             </tbody>
           </table>
           <br />
@@ -129,22 +203,14 @@ function UserBooking() {
   return (
     <UserSidebar>
       <div className="middleContent">
-        <div className="d-flex align-items-start">
-          <table className="mx-auto col-md-3">
+        {/* <table className="mx-auto col-md-3">
             <thead>
               <tr>
                 <th colSpan="2">Your Selected Flight</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Source :</td>
-                <td>{selectedFlight?.source}</td>
-              </tr>
-              <tr>
-                <td>Destination :</td>
-                <td>{selectedFlight?.destination}</td>
-              </tr>
+
               <tr>
                 <td>Date :</td>
                 <td>{selectedFlight?.travelDate}</td>
@@ -162,16 +228,15 @@ function UserBooking() {
                 <td>{cls}</td>
               </tr>
             </tbody>
-          </table>
-          <br />
-          <br />
+          </table> */}
+        <div className="d-flex align-items-start">
 
           <div className="mx-auto col-md-9">{renderPassengerForm()}</div>
         </div>
 
         <div className="text-center">
-          <button className="btn btn-primary mt-3" onClick={handleSubmit}>
-            Submit
+          <button id="rzp-button1" className="btn btn-primary mt-3" onClick={handleSubmit}>
+            Make the Payment
           </button>
         </div>
       </div>

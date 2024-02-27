@@ -83,7 +83,7 @@ public class FlightService {
                         fare += seat.getFare();
                     }
                     availableSeats = Math.min(availableSeats, seat.getAvailableSeats());
-                    totalSeats = Math.min(totalSeats, seat.getAvailableSeats());
+                    totalSeats = Math.min(totalSeats, seat.getTotalSeats());
                     System.out.println(seat.getSeatId());
                 }
             }
@@ -94,7 +94,7 @@ public class FlightService {
                 Stop stop = tempStops.get(0);
 
                 List<StopDTO> stopDTOs = tempStops.stream().map(e -> modelMapper.map(e, StopDTO.class)).collect(Collectors.toList());
-
+                fare*=Integer.parseInt(numPass);
                 FlightDTO flightDTO = new FlightDTO(stop.getStopId().getFlight().getFlightId(), stop.getStopId().getFlight().getFlightName(), stop.getStopId().getFlight().getLogo(), Integer.parseInt(numPass),
                         stopDTOs, availableSeats, totalSeats, fare, type);
 

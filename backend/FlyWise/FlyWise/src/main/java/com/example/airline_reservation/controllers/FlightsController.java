@@ -17,7 +17,7 @@ public class FlightsController {
     FlightService flService;
 
     @GetMapping
-    List<FlightDTO> getFlights(@RequestParam String from, @RequestParam String to, @DateTimeFormat(pattern = "yyyy-MM-dd") @RequestParam("date") LocalDate date, @RequestParam("num_pass") String numPass, @RequestParam String type) {
+    List<FlightDTO> getFlights(@RequestParam String from, @RequestParam String to, @DateTimeFormat(pattern = "dd-MM-yyyy") @RequestParam("date") LocalDate date, @RequestParam("num_pass") String numPass, @RequestParam String type) {
         return flService.getFlights(from, to, date, numPass, type);
     }
 }

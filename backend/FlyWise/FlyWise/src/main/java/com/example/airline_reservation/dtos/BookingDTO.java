@@ -25,6 +25,11 @@ public class BookingDTO {
     Integer destinationNumber;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    StopDTO source;
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    StopDTO destination;
+
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     Integer paymentId;
     Long userId;
 

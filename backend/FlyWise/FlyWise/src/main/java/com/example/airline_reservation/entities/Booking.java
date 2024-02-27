@@ -41,7 +41,7 @@ public class Booking {
     })
     Stop destination;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "payment_id")
     Payment payment;
 
@@ -51,4 +51,10 @@ public class Booking {
 
     @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
     List<Passenger> passengers;
+
+    public void addPassengers(){
+        for(int i=0; i<passengers.size(); i++){
+            passengers.get(i).setBooking(this);
+        }
+    }
 }

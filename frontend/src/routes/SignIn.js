@@ -46,6 +46,9 @@ function SignIn() {
       const userId = response.data.userId;
       const role = response.data.role;
       const firstName = response.data.firstName;
+      const lastName = response.data.lastName;
+      const email = response.data.email;
+      const mobile = response.data.phoneNumber;
 
       const setAuthToken = (token) => {
         if (token) {
@@ -53,6 +56,9 @@ function SignIn() {
           sessionStorage.setItem("uid", userId);
           sessionStorage.setItem("role", role);
           sessionStorage.setItem("fname", firstName);
+          sessionStorage.setItem("lname", lastName);
+          sessionStorage.setItem("email", email);
+          sessionStorage.setItem("mobile_number", mobile);
         }
       };
 
@@ -67,7 +73,7 @@ function SignIn() {
       if (sessionStorage.getItem("jwtToken") && sessionStorage.getItem("fid")) {
         toast.success("Login Successful.");
         dispatch({ type: "USER", payload: true }); // payload -- authenticated = true
-        navigate("/selectseat");
+        navigate("/addPassengers");
       }
 
       //Home page

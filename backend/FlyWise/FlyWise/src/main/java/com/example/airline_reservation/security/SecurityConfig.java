@@ -20,6 +20,9 @@ public class SecurityConfig {
     @Autowired
     private JwtAuthenticationFilter jwtFilter;
 
+    @Autowired
+    private CorsFilter corsFilter;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
@@ -31,7 +34,8 @@ public class SecurityConfig {
                         .mvcMatchers("/swagger-ui/**", "/v*/api-doc*/**").permitAll()
 //                        .requestMatchers("/users/signup", "/users/signin").permitAll()
                         .anyRequest().authenticated())
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(corsFilter, UsernamePasswordAuthenticationFilter.class);
 //        http.formLogin(Customizer.withDefaults());
 
         return http.build();
