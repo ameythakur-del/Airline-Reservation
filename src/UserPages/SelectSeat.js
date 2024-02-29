@@ -21,7 +21,7 @@ const SelectSeat = () => {
 
   console.log(selectedFlight);
 
-  const BASE_URL = "http://localhost:8080";
+  const BASE_URL = "https://ec2-52-66-238-185.ap-south-1.compute.amazonaws.com/8080";
 
   const handleBook = async (event) => {
     event.preventDefault();

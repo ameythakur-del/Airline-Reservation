@@ -1,5 +1,5 @@
 import axios from "axios";
-const FLIGHT_BASE_REST_API_URI = "http://localhost:8080/flight";
+const FLIGHT_BASE_REST_API_URI = "https://ec2-52-66-238-185.ap-south-1.compute.amazonaws.com/8080/flight";
 
 class FlightService {
   getAllFlights() {

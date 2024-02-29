@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-flywiseairways-dev-134235-authRole",
+      "UnauthRoleArn": "arn:aws:iam::875521975348:role/amplify-flywiseairways-dev-134235-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::875521975348:role/amplify-flywiseairways-dev-134235-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-flywiseairways-dev-134235-deployment",
+      "UnauthRoleName": "amplify-flywiseairways-dev-134235-unauthRole",
+      "StackName": "amplify-flywiseairways-dev-134235",
+      "StackId": "arn:aws:cloudformation:us-east-1:875521975348:stack/amplify-flywiseairways-dev-134235/f77ad280-d547-11ee-8e6e-1225b20e0051",
+      "AmplifyAppId": "d1t3k2lmhymljr"
+    }
+  }
+}
