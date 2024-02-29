@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Airline_Reservation:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7e3195c9-8cef-4eac-a873-4fe27c511dd5" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2cM6EwUhtq3ULfucQYkwnb2Bex6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.Airline_Reservation [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Airline_Reservation [package].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AirlineReservationApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/amey3/IdeaProjects/FlyWise_Airways/backend/FlyWise/FlyWise&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\amey3\IdeaProjects\FlyWise_Airways\backend\FlyWise\FlyWise\src\main\java\com\example\airline_reservation\security" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn package" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="AirlineReservationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="Airline_Reservation" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.airline_reservation.AirlineReservationApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-11.0.22-azul-11.0.22-4caba194b151-dbd0fede" />
+        <option value="jdk-17.0.10-azul-17.0.10-4caba194b151-cd1dbda1" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7e3195c9-8cef-4eac-a873-4fe27c511dd5" name="Changes" comment="" />
+      <created>1707908994063</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707908994063</updated>
+      <workItem from="1707908995182" duration="1298000" />
+      <workItem from="1708003881895" duration="1836000" />
+      <workItem from="1708007475621" duration="2653000" />
+      <workItem from="1708011614293" duration="154000" />
+      <workItem from="1708137097505" duration="3132000" />
+      <workItem from="1708233261710" duration="755000" />
+      <workItem from="1708332434370" duration="8793000" />
+      <workItem from="1708396882310" duration="242000" />
+      <workItem from="1708397312046" duration="702000" />
+      <workItem from="1708418153023" duration="177000" />
+      <workItem from="1708418406591" duration="3068000" />
+      <workItem from="1708486749003" duration="6339000" />
+      <workItem from="1708505535790" duration="8235000" />
+      <workItem from="1708521762035" duration="3121000" />
+      <workItem from="1708569330037" duration="1296000" />
+      <workItem from="1708590985771" duration="3196000" />
+      <workItem from="1708680655267" duration="3529000" />
+      <workItem from="1708695626502" duration="827000" />
+      <workItem from="1708701505107" duration="1509000" />
+      <workItem from="1708705398139" duration="3914000" />
+      <workItem from="1708766232294" duration="13010000" />
+      <workItem from="1708873669284" duration="990000" />
+      <workItem from="1708929445248" duration="7175000" />
+      <workItem from="1708948275069" duration="7597000" />
+      <workItem from="1709045793669" duration="175000" />
+      <workItem from="1709046107117" duration="3273000" />
+      <workItem from="1709121250673" duration="8530000" />
+      <workItem from="1709134545025" duration="85000" />
+      <workItem from="1709136597868" duration="2449000" />
+      <workItem from="1709142723402" duration="2002000" />
+      <workItem from="1709189807692" duration="5060000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

@@ -12,7 +12,7 @@ function SignIn() {
   const navigate = useNavigate();
 
   //  const location = useLocation();
-  const BASE_URL = "https://ec2-52-66-238-185.ap-south-1.compute.amazonaws.com/8080/users";
+  const BASE_URL = "http://ec2-52-66-238-185.ap-south-1.compute.amazonaws.com:8080/users";
   //   console.log(sessionmStorage.getItem("fid"));
 
   const handleSignup = () => {

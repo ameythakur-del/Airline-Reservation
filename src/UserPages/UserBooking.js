@@ -26,7 +26,7 @@ function UserBooking() {
   // const cls = location.state.cls;
   const cls = sessionStorage.getItem("class");
 
-  const BASE_URL = "https://ec2-52-66-238-185.ap-south-1.compute.amazonaws.com/8080";
+  const BASE_URL = "http://ec2-52-66-238-185.ap-south-1.compute.amazonaws.com:8080";
 
   const handlePassengerChange = (event, index) => {
     const { name, value } = event.target;

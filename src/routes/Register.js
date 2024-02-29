@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const navigate = useNavigate();
-  const USER_BASE_REST_API_URI = "https://ec2-52-66-238-185.ap-south-1.compute.amazonaws.com/8080/users";
+  const USER_BASE_REST_API_URI = "http://ec2-52-66-238-185.ap-south-1.compute.amazonaws.com:8080/users";
 
   const [formData, setFormData] = useState({
     email: "",

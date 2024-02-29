@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export const UserProfile = () => {
   const navigate = useNavigate();
-  const USER_BASE_REST_API_URI = "https://ec2-52-66-238-185.ap-south-1.compute.amazonaws.com/8080";
+  const USER_BASE_REST_API_URI = "http://ec2-52-66-238-185.ap-south-1.compute.amazonaws.com:8080";
   const uid = sessionStorage.getItem("uid");
   const [user, setUser] = useState();
 
